@@ -1,0 +1,12 @@
+/* box-shadow */
+@mixin box-shadow($x-axis, $y-axis, $blur, $spread, $color) {
+	box-shadow: $x-axis $y-axis $blur $color;
+}
+/* flex-properties */
+@mixin flexbox() {
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

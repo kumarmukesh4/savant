@@ -1,0 +1,16 @@
+@import '../../../styles/base/color';
+
+header {
+    background-color: $white !important;
+    h6 {
+        color: $darkRed !important;
+    }
+    button {
+        color: $black !important;
+        margin: 0 10px !important;
+
+        &.active {
+            color: $white !important
+        }
+    }
+}

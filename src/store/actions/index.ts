@@ -1,0 +1,1 @@
+export { getPropertyList } from './property'
