@@ -91,8 +91,8 @@ class HttpService {
 		return this.service.get(path, config);
 	}
 	// POST Request
-	post(path: string, payload: PayLoad, config = this.config): AxiosPromise {
-		return this.service.post(path, payload, config);
+	post(path: string, payload: PayLoad): AxiosPromise {
+		return this.service.post(path, payload);
 	}
 	// PATCH Request
 	patch(path: string, payload: PayLoad, config = this.config): AxiosPromise {

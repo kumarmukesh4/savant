@@ -1,6 +1,6 @@
 
 const API_BASE_PATH = () => {
-	return 'https://jsonplaceholder.typicode.com';
+	return 'http://6dde4494bbf3.ngrok.io/sservice';
 };
 
 export enum MSG_TYPE {
