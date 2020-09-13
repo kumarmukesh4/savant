@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect, useState } from 'react'
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { GlobalState } from '../schemas';
 import { getPropertyList } from '../store/actions';
@@ -19,6 +19,7 @@ const Home = (props: Props) => {
     const dispatch = useDispatch();
     const [isLoader, setIsLoader] = useState<boolean>(false);
     const [data, setData] = useState<any>([]);
+    const history = useHistory();
 
     const propertyList = useSelector((state:GlobalState)=> {
         return state.property.list ? [...state.property.list] : null;
@@ -50,23 +51,23 @@ const Home = (props: Props) => {
             .post(APPLICATION_API.GET_PROPERTY(), {})
             .then((resp: AxiosResponse) => {
                 const list = resp?.data.result;
-
                 setData(list);
-
                 setIsLoader(false);
-               
             })
             .catch((err: AxiosError) => {
                 setIsLoader(false);
             });
     }
 
+    const searchedPropertyList = (item: string) => {
+        history.push('properties/'+item);
+    }
 
     return (
         <>
             <h1>Home</h1>
             { isLoader && <Loader  title="Loading..."/> }
-            <Search data = {data}  />
+            <Search data = {data} searchedPropertyList = {searchedPropertyList}  />
         </>
     );
 }
